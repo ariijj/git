@@ -15,7 +15,7 @@ export class LoginComponent {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
+  
 
   constructor(private authService: AuthService, private storageService: StorageService) { }
 
