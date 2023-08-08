@@ -13,11 +13,33 @@ export class SignupComponent {
   studentaddress:String="";
   mobile: Number =0;
   password:String="";
-  CV:any=null;
-  Lettre_motivation:any=null;
-  Image:any=null;
+  CV: File | null = null;
+  Lettre_motivation:File | null = null;
+  Image:File | null = null;
+
  
   currentStudentID = "";
+  handleFileInput1(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+
+    if (inputElement.files && inputElement.files.length > 0) {
+      this.CV = inputElement.files[0]; // Assigne le premier fichier sélectionné à CV
+    }
+  }
+  handleFileInput2(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+
+    if (inputElement.files && inputElement.files.length > 0) {
+      this.Lettre_motivation = inputElement.files[0]; // Assigne le premier fichier sélectionné à CV
+    }
+  }
+  handleFileInput3(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+
+    if (inputElement.files && inputElement.files.length > 0) {
+      this.Image = inputElement.files[0]; // Assigne le premier fichier sélectionné à CV
+    }
+  }
 
 
   constructor(private http: HttpClient ){
@@ -50,7 +72,7 @@ export class SignupComponent {
     };
     
  
-    this.http.post("http://localhost:8085/api/v1/student/upload",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
+    this.http.post("http://localhost:8087/api/v1/student/upload",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
     {
         console.log(resultData);
         alert("Student Registered Successfully");
@@ -61,9 +83,9 @@ export class SignupComponent {
         this.studentaddress='',
         this.password='',
         this.mobile=0,
-        this.CV=[],
-        this.Lettre_motivation=[],
-       this.Image=[]
+        this.CV,
+        this.Lettre_motivation,
+       this.Image
   });
   }
 
@@ -120,9 +142,9 @@ export class SignupComponent {
         this.studentaddress='',
         this.password='',
         this.mobile=0,
-        this.CV=[],
-        this.Lettre_motivation=[],
-        this.Image=[]
+        this.CV,
+        this.Lettre_motivation,
+        this.Image
     });
   }
  
@@ -154,9 +176,9 @@ export class SignupComponent {
         this.studentaddress='',
         this.password='',
         this.mobile=0,
-        this.CV=[],
-        this.Lettre_motivation=[],
-        this.Image=[]
+        this.CV,
+        this.Lettre_motivation,
+        this.Image
     });
  
   }}

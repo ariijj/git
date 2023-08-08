@@ -18,6 +18,9 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { DoSectionComponent } from './section/do-section.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { httpInterceptorProviders } from 'src/_helpers/auth.interceptor';
+import { ProfileComponent } from './profile/profile.component';
+import { PageHomeComponent } from './page-home/page-home.component';
 
 
 
@@ -38,7 +41,9 @@ import { LoginComponent } from './login/login.component';
     AccueilComponent,
     DoSectionComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    PageHomeComponent
     
   
   ],
@@ -49,7 +54,7 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule
   ],
   
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {

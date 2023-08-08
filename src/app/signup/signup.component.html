@@ -3,9 +3,10 @@
 	
 	<div class="formbold-form-wrapper">
      <img src="assets/images/log.png.jpg">
-	  <form >
+	  <form 
+	   >
 		<div class="formbold-input-group">
-		  <label for="name" class="formbold-form-label"> Name </label>
+		  <label for="username" class="formbold-form-label"> username </label>
 		  <input
 
 			type="text"
@@ -13,6 +14,8 @@
 			placeholder="Enter your name"
 			class="formbold-form-input"
 			[(ngModel)]="username" [ngModelOptions]="{standalone: true}"
+			required
+         
 		  />
 		</div>
   
@@ -78,23 +81,26 @@
 			/>
 		  </div>
 		  <div class="formbold-input-group">
-			<label for="password" class="formbold-form-label"> password</label>
+			<label for="password" class="formbold-form-label"> CV</label>
 			<input
 			  type="file"
 			  [(ngModel)]="CV" [ngModelOptions]="{standalone: true}"
 			  id="CV" name="CV"
 			  placeholder="Enter your CV"
 			  class="formbold-form-input"
+			  register(username,email,studentbirth,studentaddress,password,CV,lettre_motivatio,Image)
+			  
 			/>
 		  </div>
 		  <div class="formbold-input-group">
-			<label for="password" class="formbold-form-label"> password</label>
+			<label for="password" class="formbold-form-label"> Lettre_motivation</label>
 			<input
 			  type="file"
 			  [(ngModel)]="Lettre_motivation" [ngModelOptions]="{standalone: true}"
 			  id="Lettre_motivation" name="Lettre_motivation"
 			  placeholder="Enter your Lettre_motivation"
 			  class="formbold-form-input"
+			  (change)="handleFileInput2($event)"
 			/>
 		  </div>
 		  <div class="formbold-input-group">
@@ -105,6 +111,7 @@
 			  id="Image" name="Image"
 			  placeholder="Enter your photo"
 			  class="formbold-form-input"
+			  (change)="handleFileInput3($event)"
 			/>
 			<div>
 				<button class="formbold-btn" (click)="register()">Submit</button>

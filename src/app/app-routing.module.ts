@@ -10,9 +10,13 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { DoSectionComponent } from './section/do-section.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PageHomeComponent } from './page-home/page-home.component';
 
 
 const routes: Routes = [
+  {path:'page-home',component:PageHomeComponent},
+  {path:'profile',component:ProfileComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   {path:'section',component:DoSectionComponent},
